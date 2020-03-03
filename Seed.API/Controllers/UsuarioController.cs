@@ -3,25 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Seed.BLL.Interface;
 
-namespace Seed.Controllers
+namespace Seed.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
+        private readonly IUsuarioService _usuarioService;
+
+        public UsuarioController(IUsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
+
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "João", "Maria" };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            var result = _usuarioService.GetById(id);
+            return Ok(result);
         }
 
         // POST api/values

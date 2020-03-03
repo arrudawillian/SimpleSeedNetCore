@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Seed.BLL\Seed.BLL.csproj" />
+    <ProjectReference Include="..\Seed.DAL\Seed.DAL.csproj" />
+    <ProjectReference Include="..\Seed.Domain\Seed.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
